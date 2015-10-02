@@ -60,12 +60,17 @@ public class StreamBytes {
 				
 	}
 	
+	/*Funcionalidad de "copiaBytes": Este método solo se ejecuta si abrirFichero==true (Existe el fichero binario origen, y se puede efectuar la lectura de bytes sobre él), y cuya función es la siguiente:
+	  Empieza a leer byte a byte el fichero binario de origen (WHILE) y por cada iteración del bucle, es decir, por cada byte leido del origen, lo escribe en el fichero destino y finalmente de esta forma 
+	  obtenemos una copia identica.*/
+	
 	public static void copiaBytes(){
-		
+		//ARRAY DE BYTES
 		byte[] buffer = new byte[1024*1024];
 		int cadena;
 		
 		try {
+			//BUCLE DE LECTURA Y ESCRITURA DE BYTES 
 			while ((cadena = fi.read(buffer)) > 0) {
 				fo.write(buffer, 0, cadena);
 			}
@@ -76,6 +81,7 @@ public class StreamBytes {
 		}
 		finally{
 			try {
+				//CERRAMOS LOS STREAMS DE LECTURA Y ESCRITURA DE BYTES
 				fi.close();
 				fo.close();
 			}
